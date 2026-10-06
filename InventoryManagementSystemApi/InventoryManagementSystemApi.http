@@ -1,6 +1,58 @@
-@InventoryManagementSystemApi_HostAddress = http://localhost:5168
+@HostAddress = http://localhost:5168
 
-GET {{InventoryManagementSystemApi_HostAddress}}/weatherforecast/
+### 1. Get All Categories (with product counts)
+GET {{HostAddress}}/api/categories
 Accept: application/json
 
-###
+### 2. Get Category By ID with Simple Products
+GET {{HostAddress}}/api/categories/1
+Accept: application/json
+
+### 3. Create New Category
+POST {{HostAddress}}/api/categories
+Content-Type: application/json
+
+{
+  "name": "Peripherals & Accessories",
+  "description": "Cables, keyboards, mice, and desk accessories"
+}
+
+### 4. Get All Products (Full Overview)
+GET {{HostAddress}}/api/products
+Accept: application/json
+
+### 5. Get Product Details By ID (Complex Query 1)
+GET {{HostAddress}}/api/products/1
+Accept: application/json
+
+### 6. Get Low Stock Alerts (Complex Query 2)
+GET {{HostAddress}}/api/products/low-stock
+Accept: application/json
+
+### 7. Create New Product
+POST {{HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Mechanical Keyboard RGB",
+  "sku": "KB-RGB-01",
+  "description": "Tenkeyless mechanical gaming and office keyboard",
+  "price": 89.99,
+  "categoryId": 1
+}
+
+### 8. Get All Warehouses (with stock metrics)
+GET {{HostAddress}}/api/warehouses
+Accept: application/json
+
+### 9. Get Warehouse Details
+GET {{HostAddress}}/api/warehouses/1
+Accept: application/json
+
+### 10. Get All Suppliers
+GET {{HostAddress}}/api/suppliers
+Accept: application/json
+
+### 11. Get Supplier Details (with supplied products & prices)
+GET {{HostAddress}}/api/suppliers/1
+Accept: application/json
